@@ -1,0 +1,13 @@
+# docker run -it -v $(pwd):/app ruby:2.3 sh
+# gem install travis
+# travis login
+# cd app/
+# travis encrypt-file service-account.json -r fadiquader/complex-multi-conainer
+
+# gcloud shell
+# install helm => https://kubernetes.github.io/ingress-nginx/deploy/#using-helm
+# kubectl get namespaces
+# kubectl create serviceaccount --namespace kube-system tiller
+# kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+# helm init --service-account tiller --upgrade
+# https://helm.sh/docs/using_helm/#installing-helm
