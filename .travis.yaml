@@ -15,6 +15,16 @@ before_install:
   - gcloud config set compute/zone asia-east1-a # cluster zone
   - gcloud container clusters get-credentials multi-cluster # cluster name
   - echo "$DOCKER_PASSWORD" docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build fadiqua/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run fadiqua/react-test npm test -- --coverage
+
+deploy:
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: master
 
 
 # docker run -it -v $(pwd):/app ruby:2.3 sh
